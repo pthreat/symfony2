@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{%block stylesheet%}
+
+	.checkout-summary {
+	  max-width: 500px;
+	  background-color: #fefefe;
+	}
+
+	.checkout-summary-title {
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-justify-content: space-between;
+	      -ms-flex-pack: justify;
+	          justify-content: space-between;
+	  padding: 1rem;
+	  border: 1px solid #e6e6e6;
+	}
+
+	.checkout-summary-item {
+	  border-left: 1px solid #e6e6e6;
+	  border-right: 1px solid #e6e6e6;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-justify-content: space-between;
+	      -ms-flex-pack: justify;
+	          justify-content: space-between;
+	  padding: 1rem;
+	  border-bottom: 1px solid #e6e6e6;
+	}
+
+	.checkout-summary-item .item-name,
+	.checkout-summary-item .item-price {
+	  padding: 0 1rem;
+	}
+
+	.checkout-summary-item .item-name p,
+	.checkout-summary-item .item-price p {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	.checkout-summary-item .title {
+	  font-weight: bold;
+	}
+
+	.checkout-summary-details {
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-justify-content: space-between;
+	      -ms-flex-pack: justify;
+	          justify-content: space-between;
+	  padding: 1rem;
+	  border: 1px solid #e6e6e6;
+	  border-top: none;
+	}
+{%endblock%}
+
+
+{% block body %}
+	<div class="row column container-padded">
+	<div class="checkout-summary">
+  		<div class="checkout-summary-title">
+	    	<h5>Su Pedido: </h5>
+	    	<h5>Items</h5>
+ 		</div>
+ 		{% for product in products %}
+  		<div class="checkout-summary-item">
+		    <img src="https://placeimg.com/100/80/any">
+		    <div class="item-name">
+		    	<a>{{product.name}}</a>
+		    </div>
+		    <div class="item-price">
+		   		<p class="title">${{product.price}}</p>
+		      	<a href="#">Remove</a>
+		    </div>
+		</div>
+		{%endfor%}
+    <div class="right">
+      <p>$10.99</p>
+      <p>$2.00</p>
+      <p>$12.99</p>
+    </div>
+  </div>
+  <button class="button expanded">Proceder al Pago</button>
+</div>
+
+{% endblock %}
