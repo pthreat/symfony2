@@ -40,6 +40,10 @@ class ProductController extends Controller
 			->getRepository('ProductBundle:Product')
 			->find($id);
 
+		if(null === $product){
+			throw new \LogicException("Product not found");
+		}
+
 		return $this->render('ProductBundle:Product:view.html.twig' , [
 				'product'=> $product
 		]);

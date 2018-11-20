@@ -5,6 +5,8 @@ namespace ProductBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use ecommarg\cart\ProductInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Product
@@ -28,6 +30,7 @@ class Product implements ProductInterface
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+	  * @Assert\NotBlank
      */
     private $name;
 
@@ -35,6 +38,7 @@ class Product implements ProductInterface
      * @var float
      *
      * @ORM\Column(name="price", type="float")
+	  * @Assert\NotBlank
      */
     private $price;
 
@@ -42,6 +46,7 @@ class Product implements ProductInterface
      * @var int
      *
      * @ORM\Column(name="stock", type="integer")
+	  * @Assert\NotBlank
      */
     private $stock;
 
